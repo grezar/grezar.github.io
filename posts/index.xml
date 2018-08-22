@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on grezar.net</title>
+    <link>https://grezar.net/posts/</link>
+    <description>Recent content in Posts on grezar.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>jp-ja</language>
+    <lastBuildDate>Thu, 23 Aug 2018 01:03:28 +0900</lastBuildDate>
+    
+	<atom:link href="https://grezar.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>エンジニアは電脳獣の夢を見るか</title>
+      <link>https://grezar.net/posts/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AF%E9%9B%BB%E8%84%B3%E7%8D%A3%E3%81%AE%E5%A4%A2%E3%82%92%E8%A6%8B%E3%82%8B%E3%81%8B/</link>
+      <pubDate>Thu, 23 Aug 2018 01:03:28 +0900</pubDate>
+      
+      <guid>https://grezar.net/posts/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AF%E9%9B%BB%E8%84%B3%E7%8D%A3%E3%81%AE%E5%A4%A2%E3%82%92%E8%A6%8B%E3%82%8B%E3%81%8B/</guid>
+      <description>ブログを書く 僕がまだ小学生だった頃、誕生日プレゼントはいつもゲームでした。その中でも記憶に残っているのがロックマンエグゼです。高度にインターネットが発達した社会で、PETと呼ばれる人型AIを操り、電脳世界の平和を守るために戦う。完成度の高い対戦システムと作り込まれたわくわくさせられるロックマンエグゼの世界観に幼い僕は夢中になりました。
+あれから10年。あの頃から比べるとインターネットは進歩し、とても身近なものになったと思います。今やインターネットに触れない日などないでしょう。そして僕はエンジニアになりました。ロックマンエグゼに夢中になったあの頃から夢だった職業です。
+新人エンジニアが技術で世の中を変えることができるエンジニアを目指し、学んだことをこのブログに書いていきます。自己満足でもなんでもいいから継続してアウトプットすることを目指します。それが何かの形になって、誰かの参考になったなら意味のあるものになるでしょう。そのための手段がこのブログです。どうぞよろしくお願いします。</description>
+    </item>
+    
+  </channel>
+</rss>
