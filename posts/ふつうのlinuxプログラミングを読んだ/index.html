@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="jp-ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>ふつうのLinuxプログラミングを読んだ - grezar.net</title>
+  
+  <meta name="description" content="意気揚々とスタートしたこのブログも初回の自己紹介から4ヶ月未更新。とほほ。気合を入れ直して記事を投下します。
+ふつうのLinuxプログラミング ふつうのLinuxプログラミングの第2版を読みました。この本の概要は以下です。
+本書はLinuxプログラミングの入門書です。つまり、本書を読むことで読者のみなさんがLinux向けのプログラムをバリバリと作れるようになる、あるいはそこまでいかなくとも、そうなるために何が必要なのか判断できるようになることを目標としています。 では、本書はどのような道筋をたどってその目標を達成するのでしょうか。簡単です。本書がやることはただ1つ、「Linux世界が何によってできているのか」を教えることです。 ―まえがきより抜粋  要するにLinuxカーネルのシステムコールであったり、ライブラリ関数を利用していくつかのコマンドや、HTTPサーバーを作成して、Linuxでのプログラミングを学んでいくという内容の本です。 Linuxのファイルシステムやプロセス、ストリームと言った概念についても解説をしており、Cを書く機会とLinuxの仕組みについて学ぶことを目的としてこの本を手に取りました。
+ただ読んだだけではなかなか身につかないのでこの記事に読書記録としてまとめてアウトプットしておこうと思います。少しずつ更新予定。
+目次  第1章 Linuxプログラミングを始めよう  1.5 コマンドライン引数   第1章 コマンドライン引数 コマンドライン引数がmain関数にどのように渡されるかという話。
+#include &lt;stdio.h&gt; int main(int argc, char *argv[]) { printf(&quot;Hello, World!\n&quot;); return 0; }  このargcとargvがコマンドライン引数を表しています。
+argc はコマンドライン引数の数が、 argv はコマンドライン引数の実体が文字列の配列として格納されています。 この時注意しなければならないのはコマンドライン引数にはコマンド自体が含まれているということです。 例えば
+echo x y z  というコマンドを実行した時argcはecho自体を含めた4、argvの中身は&rdquo;echo&rdquo;, &ldquo;x&rdquo;, &ldquo;y&rdquo;, &ldquo;z&rdquo;となります。 もちろんargcとargvという変数名は任意です。
+サンプルコード args.c
+#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; int main(int argcount, char *args[]) { int i; printf(&quot;argcount=%d\n&quot;, argcount); for (i = 0; i &lt; argcount; i&#43;&#43;) { printf(&quot;args[%d]=%s\n&quot;, i, args[i]); } exit(0); }  $ gcc -o args args.">
+  <meta name="author" content="">
+  
+  <link href="https://grezar.net/css/font.css" rel="stylesheet">
+  <link href="https://grezar.net/css/atom-one-dark.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
+  <link href="https://grezar.net/css/style.css" rel="stylesheet">
+  
+  <link rel="apple-touch-icon" href="https://grezar.net/img/apple-touch-icon.png">
+  <link rel="icon" href="https://grezar.net/img/favicon.ico">
+  
+  <meta name="generator" content="Hugo 0.53" />
+  
+  <link rel="alternate" type="application/atom+xml" href="https://grezar.net/index.xml" title="grezar.net">
+  
+</head>
+<body class="single">
+  <header class="header">
+    
+    <p class="title"><a href="https://grezar.net/">grezar.net</a></p>
+    
+    <button class="menu-toggle" type="button"></button>
+    <nav class="menu">
+      <ul>
+        
+        
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+
+<article class="post post-view">
+  <header class="post-header">
+    <h1 class="post-title">ふつうのLinuxプログラミングを読んだ</h1>
+    <p class="post-meta">2018.12.30</p>
+  </header>
+  <div class="post-content">
+
+<p>意気揚々とスタートしたこのブログも初回の自己紹介から4ヶ月未更新。とほほ。気合を入れ直して記事を投下します。</p>
+
+<h2 id="ふつうのlinuxプログラミング">ふつうのLinuxプログラミング</h2>
+
+<p><a href="https://www.amazon.co.jp/%E3%81%B5%E3%81%A4%E3%81%86%E3%81%AELinux%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0-%E7%AC%AC2%E7%89%88-Linux%E3%81%AE%E4%BB%95%E7%B5%84%E3%81%BF%E3%81%8B%E3%82%89%E5%AD%A6%E3%81%B9%E3%82%8Bgcc%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E3%81%AE%E7%8E%8B%E9%81%93-%E9%9D%92%E6%9C%A8-%E5%B3%B0%E9%83%8E/dp/4797386479">ふつうのLinuxプログラミング</a>の第2版を読みました。この本の概要は以下です。</p>
+
+<pre><code>本書はLinuxプログラミングの入門書です。つまり、本書を読むことで読者のみなさんがLinux向けのプログラムをバリバリと作れるようになる、あるいはそこまでいかなくとも、そうなるために何が必要なのか判断できるようになることを目標としています。
+では、本書はどのような道筋をたどってその目標を達成するのでしょうか。簡単です。本書がやることはただ1つ、「Linux世界が何によってできているのか」を教えることです。
+―まえがきより抜粋
+</code></pre>
+
+<p>要するにLinuxカーネルのシステムコールであったり、ライブラリ関数を利用していくつかのコマンドや、HTTPサーバーを作成して、Linuxでのプログラミングを学んでいくという内容の本です。
+Linuxのファイルシステムやプロセス、ストリームと言った概念についても解説をしており、Cを書く機会とLinuxの仕組みについて学ぶことを目的としてこの本を手に取りました。</p>
+
+<p>ただ読んだだけではなかなか身につかないのでこの記事に読書記録としてまとめてアウトプットしておこうと思います。少しずつ更新予定。</p>
+
+<h2 id="目次">目次</h2>
+
+<ul>
+<li>第1章 Linuxプログラミングを始めよう
+
+<ul>
+<li>1.5 <a href="#コマンドライン引数">コマンドライン引数</a></li>
+</ul></li>
+</ul>
+
+<h2 id="第1章">第1章</h2>
+
+<h3 id="コマンドライン引数">コマンドライン引数</h3>
+
+<p>コマンドライン引数がmain関数にどのように渡されるかという話。</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int
+main(int argc, char *argv[])
+{
+    printf(&quot;Hello, World!\n&quot;);
+    return 0;
+}
+</code></pre>
+
+<p>この<code>argc</code>と<code>argv</code>がコマンドライン引数を表しています。</p>
+
+<p><code>argc</code> はコマンドライン引数の数が、 <code>argv</code> はコマンドライン引数の実体が文字列の配列として格納されています。
+この時注意しなければならないのはコマンドライン引数にはコマンド自体が含まれているということです。
+例えば</p>
+
+<pre><code>echo x y z
+</code></pre>
+
+<p>というコマンドを実行した時<code>argc</code>はecho自体を含めた4、<code>argv</code>の中身は&rdquo;echo&rdquo;, &ldquo;x&rdquo;, &ldquo;y&rdquo;, &ldquo;z&rdquo;となります。
+もちろん<code>argc</code>と<code>argv</code>という変数名は任意です。</p>
+
+<h4 id="サンプルコード">サンプルコード</h4>
+
+<p>args.c</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int
+main(int argcount, char *args[])
+{
+    int i;
+
+    printf(&quot;argcount=%d\n&quot;, argcount);
+    for (i = 0; i &lt; argcount; i++) {
+        printf(&quot;args[%d]=%s\n&quot;, i, args[i]);
+    }
+    exit(0);
+}
+</code></pre>
+
+<pre><code>$ gcc -o args args.c
+$ ./args a b c
+argcount=4
+args[0]=./args
+args[1]=a
+args[2]=b
+args[3]=c
+</code></pre>
+</div>
+  <footer class="post-footer">
+    
+  </footer>
+  
+  
+  
+  
+</article>
+</main>
+<footer class="footer">
+  <span>&copy; 2018 grezar.net</span>
+  <span>&middot;</span>
+  <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
+  <span>&middot;</span>
+  <span>Designed by <a href="http://21beats.com/" rel="noopener" target="_blank">️21beats️</a>️</span>
+</footer>
+<script src="https://grezar.net/js/instantclick.min.js" data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script>
+<script src="https://grezar.net/js/highlight.min.js" data-no-instant></script>
+<script data-no-instant>
+  addMenuListener();
+  InstantClick.on('change', function() {
+    addMenuListener();
+  });
+  function addMenuListener() {
+    var $toggle = document.querySelector('.menu-toggle');
+    var $body = document.querySelector('body');
+    $toggle.addEventListener('click', function() {
+      $body.classList.toggle('noscroll');
+    }, false);
+  }
+</script>
+</body>
+</html>
+
