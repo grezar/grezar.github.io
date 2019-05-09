@@ -1,47 +1,50 @@
 <!DOCTYPE html>
 <html lang="jp-ja">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-  <title>Posts - grezar.net</title>
-  
-  <meta name="description" content="">
-  <meta name="author" content="">
-  
-  <link href="https://grezar.net/css/font.css" rel="stylesheet">
-  <link href="https://grezar.net/css/atom-one-dark.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
-  <link href="https://grezar.net/css/style.css" rel="stylesheet">
-  
-  <link rel="apple-touch-icon" href="https://grezar.net/img/apple-touch-icon.png">
-  <link rel="icon" href="https://grezar.net/img/favicon.ico">
-  
-  <meta name="generator" content="Hugo 0.53" />
-  
-  <link rel="alternate" type="application/atom+xml" href="https://grezar.net/index.xml" title="grezar.net">
-  
-</head>
-<body class="list">
-  <header class="header">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <p class="title"><a href="https://grezar.net/">grezar.net</a></p>
+    <title>Posts - grezar.net</title>
     
-    <button class="menu-toggle" type="button"></button>
-    <nav class="menu">
-      <ul>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link href="https://grezar.net/css/github-gist.min.css" rel="stylesheet">
+    <link href="https://grezar.net/css/style.css" rel="stylesheet">
+    
+    <link rel="apple-touch-icon" href="https://grezar.net/img/apple-touch-icon.png">
+    <link rel="icon" href="https://grezar.net/img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.5" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://grezar.net/index.xml" title="grezar.net">
+    
+    
+  </head>
+  <body class="list">
+    <header class="header">
+      <div class="wrap">
         
+        <p class="logo"><a href="https://grezar.net/">grezar.net </a></p>
         
-      </ul>
+        <button class="menu-toggle" type="button"></button>
+      </div>
+    </header>
+    <nav class="nav">
+    <ul class="menu">
+      
+      
+    </ul>
     </nav>
-  </header>
-  <main class="main">
+    <main class="main">
 
 
-<header class="list-header">
-  <h1 class="list-title">Posts</h1>
-  
+
+<header class="page-header">
+  <h1>
+  Posts
+  </h1>
 </header>
 
 
@@ -49,68 +52,72 @@
 
 
 
-
-<article class="post post-entry">
-  <header class="post-header">
-    
-    <h2 class="post-title">ふつうのLinuxプログラミングを読んだ</h2>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>ふつうのLinuxプログラミングを読んだ</h2>
   </header>
-  <p class="post-summary">意気揚々とスタートしたこのブログも初回の自己紹介から4ヶ月未更新。とほほ。気合を入れ直して記事を投下します。
+  <section class="entry-content">
+   <p>意気揚々とスタートしたこのブログも初回の自己紹介から4ヶ月未更新。とほほ。気合を入れ直して記事を投下します。
 ふつうのLinuxプログラミング ふつうのLinuxプログラミングの第2版を読みました。この本の概要は以下です。
 本書はLinuxプログラミングの入門書です。つまり、本書を読むことで読者のみなさんがLinux向けのプログラムをバリバリと作れるようになる、あるいはそこまでいかなくとも、そうなるために何が必要なのか判断できるようになることを目標としています。 では、本書はどのような道筋をたどってその目標を達成するのでしょうか。簡単です。本書がやることはただ1つ、「Linux世界が何によってできているのか」を教えることです。 ―まえがきより抜粋  要するにLinuxカーネルのシステムコールであったり、ライブラリ関数を利用していくつかのコマンドや、HTTPサーバーを作成して、Linuxでのプログラミングを学んでいくという内容の本です。 Linuxのファイルシステムやプロセス、ストリームと言った概念についても解説をしており、Cを書く機会とLinuxの仕組みについて学ぶことを目的としてこの本を手に取りました。
-ただ読んだだけではなかなか身につかないのでこの記事に読書記録としてまとめてアウトプットしておこうと思います。少しずつ更新予定。
-目次  第1章 Linuxプログラミングを始めよう  1.5 コマンドライン引数   第1章 コマンドライン引数 コマンドライン引数がmain関数にどのように渡されるかという話。
+ただ読んだだけではなかなか身につかないので、自分の中で気になったところをこの記事に読書記録としてまとめてアウトプットしておこうと思います。少しずつ更新予定。
+目次  第1章 Linuxプログラミングを始めよう  1.5 コマンドライン引数  第3章 Linuxを描き出す3つの概念  3.1 ファイルシステム 3.2 プロセス 3.3 ストリーム 3.4 3大重要概念のまとめ  第5章 ストリームに関わるシステムコール  5.2 ファイルディスクリプタ 5.4 ストリームの読み書き   第1章 Linuxプログラミングを始めよう コマンドライン引数 コマンドライン引数がmain関数にどのように渡されるかという話。
 #include &lt;stdio.h&gt; int main(int argc, char *argv[]) { printf(&#34;Hello, World!\n&#34;); return 0; }  このargcとargvがコマンドライン引数を表しています。
 argc はコマンドライン引数の数が、 argv はコマンドライン引数の実体が文字列の配列として格納されています。 この時注意しなければならないのはコマンドライン引数にはコマンド自体が含まれているということです。 例えば
-echo x y z  というコマンドを実行した時argcはecho自体を含めた4、argvの中身は”echo”, “x”, “y”, “z”となります。 もちろんargcとargvという変数名は任意です。
-サンプルコード args.c
-#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; int main(int argcount, char *args[]) { int i; printf(&#34;argcount=%d\n&#34;, argcount); for (i = 0; i &lt; argcount; i&#43;&#43;) { printf(&#34;args[%d]=%s\n&#34;, i, args[i]); } exit(0); }  $ gcc -o args args....</p>
-  <footer class="post-footer">
-    <p class="post-meta">2018.12.30</p>
+echo x y z  というコマンドを実行した時argcはecho自体を含めた4、argvの中身は”echo”, “x”, “y”, “z”となります。 もちろんargcとargvという変数名は任意です。...</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2018.12.30</time>
   </footer>
-  <a class="post-link" href="https://grezar.net/posts/%E3%81%B5%E3%81%A4%E3%81%86%E3%81%AElinux%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A0/"></a>
+  <a class="entry-link" href="https://grezar.net/posts/%E3%81%B5%E3%81%A4%E3%81%86%E3%81%AElinux%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A0/"></a>
 </article>
 
-
-
-
-<article class="post post-entry">
-  <header class="post-header">
-    
-    <h2 class="post-title">エンジニアは電脳獣の夢を見るか</h2>
+<article class="post-entry">
+  <header class="entry-header">
+    <h2>エンジニアは電脳獣の夢を見るか</h2>
   </header>
-  <p class="post-summary">ブログを書く 僕がまだ小学生だった頃、誕生日プレゼントはいつもゲームでした。その中でも記憶に残っているのがロックマンエグゼです。高度にインターネットが発達した社会で、PETと呼ばれる人型AIを操り、電脳世界の平和を守るために戦う。完成度の高い対戦システムと作り込まれたわくわくさせられるロックマンエグゼの世界観に幼い僕は夢中になりました。
+  <section class="entry-content">
+   <p>ブログを書く 僕がまだ小学生だった頃、誕生日プレゼントはいつもゲームでした。その中でも記憶に残っているのがロックマンエグゼです。高度にインターネットが発達した社会で、PETと呼ばれる人型AIを操り、電脳世界の平和を守るために戦う。完成度の高い対戦システムと作り込まれたわくわくさせられるロックマンエグゼの世界観に幼い僕は夢中になりました。
 あれから10年。あの頃から比べるとインターネットは進歩し、とても身近なものになったと思います。今やインターネットに触れない日などないでしょう。そして僕はエンジニアになりました。ロックマンエグゼに夢中になったあの頃から夢だった職業です。
 新人エンジニアが技術で世の中を変えることができるエンジニアを目指し、学んだことをこのブログに書いていきます。自己満足でもなんでもいいから継続してアウトプットすることを目指します。それが何かの形になって、誰かの参考になったなら意味のあるものになるでしょう。そのための手段がこのブログです。どうぞよろしくお願いします。...</p>
-  <footer class="post-footer">
-    <p class="post-meta">2018.8.23</p>
+  </section>
+  <footer class="entry-footer">
+    <time>2018.8.23</time>
   </footer>
-  <a class="post-link" href="https://grezar.net/posts/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AF%E9%9B%BB%E8%84%B3%E7%8D%A3%E3%81%AE%E5%A4%A2%E3%82%92%E8%A6%8B%E3%82%8B%E3%81%8B/"></a>
+  <a class="entry-link" href="https://grezar.net/posts/%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%81%AF%E9%9B%BB%E8%84%B3%E7%8D%A3%E3%81%AE%E5%A4%A2%E3%82%92%E8%A6%8B%E3%82%8B%E3%81%8B/"></a>
 </article>
+
+
 
 
 
 </main>
 <footer class="footer">
-  <span>&copy; 2018 grezar.net</span>
+  <span>&copy; 2019 grezar.net</span>
   <span>&middot;</span>
   <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
   <span>&middot;</span>
-  <span>Designed by <a href="http://21beats.com/" rel="noopener" target="_blank">️21beats️</a>️</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
 </footer>
 <script src="https://grezar.net/js/instantclick.min.js" data-no-instant></script>
 <script data-no-instant>InstantClick.init();</script>
 <script src="https://grezar.net/js/highlight.min.js" data-no-instant></script>
 <script data-no-instant>
-  addMenuListener();
+  hljs.initHighlightingOnLoad();
+  setMenuListener();
+
   InstantClick.on('change', function() {
-    addMenuListener();
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuListener();
   });
-  function addMenuListener() {
-    var $toggle = document.querySelector('.menu-toggle');
-    var $body = document.querySelector('body');
-    $toggle.addEventListener('click', function() {
-      $body.classList.toggle('noscroll');
+
+  function setMenuListener() {
+    var menuToggle = document.querySelector('.menu-toggle');
+    var body = document.querySelector('body');
+    menuToggle.addEventListener('click', function() {
+      body.classList.toggle('no-scroll');
     }, false);
   }
 </script>

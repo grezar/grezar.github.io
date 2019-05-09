@@ -20,13 +20,11 @@
       <description>意気揚々とスタートしたこのブログも初回の自己紹介から4ヶ月未更新。とほほ。気合を入れ直して記事を投下します。
 ふつうのLinuxプログラミング ふつうのLinuxプログラミングの第2版を読みました。この本の概要は以下です。
 本書はLinuxプログラミングの入門書です。つまり、本書を読むことで読者のみなさんがLinux向けのプログラムをバリバリと作れるようになる、あるいはそこまでいかなくとも、そうなるために何が必要なのか判断できるようになることを目標としています。 では、本書はどのような道筋をたどってその目標を達成するのでしょうか。簡単です。本書がやることはただ1つ、「Linux世界が何によってできているのか」を教えることです。 ―まえがきより抜粋  要するにLinuxカーネルのシステムコールであったり、ライブラリ関数を利用していくつかのコマンドや、HTTPサーバーを作成して、Linuxでのプログラミングを学んでいくという内容の本です。 Linuxのファイルシステムやプロセス、ストリームと言った概念についても解説をしており、Cを書く機会とLinuxの仕組みについて学ぶことを目的としてこの本を手に取りました。
-ただ読んだだけではなかなか身につかないのでこの記事に読書記録としてまとめてアウトプットしておこうと思います。少しずつ更新予定。
-目次  第1章 Linuxプログラミングを始めよう  1.5 コマンドライン引数   第1章 コマンドライン引数 コマンドライン引数がmain関数にどのように渡されるかという話。
+ただ読んだだけではなかなか身につかないので、自分の中で気になったところをこの記事に読書記録としてまとめてアウトプットしておこうと思います。少しずつ更新予定。
+目次  第1章 Linuxプログラミングを始めよう  1.5 コマンドライン引数  第3章 Linuxを描き出す3つの概念  3.1 ファイルシステム 3.2 プロセス 3.3 ストリーム 3.4 3大重要概念のまとめ  第5章 ストリームに関わるシステムコール  5.2 ファイルディスクリプタ 5.4 ストリームの読み書き   第1章 Linuxプログラミングを始めよう コマンドライン引数 コマンドライン引数がmain関数にどのように渡されるかという話。
 #include &amp;lt;stdio.h&amp;gt; int main(int argc, char *argv[]) { printf(&amp;quot;Hello, World!\n&amp;quot;); return 0; }  このargcとargvがコマンドライン引数を表しています。
 argc はコマンドライン引数の数が、 argv はコマンドライン引数の実体が文字列の配列として格納されています。 この時注意しなければならないのはコマンドライン引数にはコマンド自体が含まれているということです。 例えば
-echo x y z  というコマンドを実行した時argcはecho自体を含めた4、argvの中身は&amp;rdquo;echo&amp;rdquo;, &amp;ldquo;x&amp;rdquo;, &amp;ldquo;y&amp;rdquo;, &amp;ldquo;z&amp;rdquo;となります。 もちろんargcとargvという変数名は任意です。
-サンプルコード args.c
-#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; int main(int argcount, char *args[]) { int i; printf(&amp;quot;argcount=%d\n&amp;quot;, argcount); for (i = 0; i &amp;lt; argcount; i++) { printf(&amp;quot;args[%d]=%s\n&amp;quot;, i, args[i]); } exit(0); }  $ gcc -o args args.</description>
+echo x y z  というコマンドを実行した時argcはecho自体を含めた4、argvの中身は&amp;rdquo;echo&amp;rdquo;, &amp;ldquo;x&amp;rdquo;, &amp;ldquo;y&amp;rdquo;, &amp;ldquo;z&amp;rdquo;となります。 もちろんargcとargvという変数名は任意です。</description>
     </item>
     
     <item>

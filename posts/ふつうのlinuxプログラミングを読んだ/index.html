@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html lang="jp-ja">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-  <title>ふつうのLinuxプログラミングを読んだ - grezar.net</title>
-  
-  <meta name="description" content="意気揚々とスタートしたこのブログも初回の自己紹介から4ヶ月未更新。とほほ。気合を入れ直して記事を投下します。
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>ふつうのLinuxプログラミングを読んだ - grezar.net</title>
+    
+    <meta name="description" content="意気揚々とスタートしたこのブログも初回の自己紹介から4ヶ月未更新。とほほ。気合を入れ直して記事を投下します。
 ふつうのLinuxプログラミング ふつうのLinuxプログラミングの第2版を読みました。この本の概要は以下です。
 本書はLinuxプログラミングの入門書です。つまり、本書を読むことで読者のみなさんがLinux向けのプログラムをバリバリと作れるようになる、あるいはそこまでいかなくとも、そうなるために何が必要なのか判断できるようになることを目標としています。 では、本書はどのような道筋をたどってその目標を達成するのでしょうか。簡単です。本書がやることはただ1つ、「Linux世界が何によってできているのか」を教えることです。 ―まえがきより抜粋  要するにLinuxカーネルのシステムコールであったり、ライブラリ関数を利用していくつかのコマンドや、HTTPサーバーを作成して、Linuxでのプログラミングを学んでいくという内容の本です。 Linuxのファイルシステムやプロセス、ストリームと言った概念についても解説をしており、Cを書く機会とLinuxの仕組みについて学ぶことを目的としてこの本を手に取りました。
-ただ読んだだけではなかなか身につかないのでこの記事に読書記録としてまとめてアウトプットしておこうと思います。少しずつ更新予定。
-目次  第1章 Linuxプログラミングを始めよう  1.5 コマンドライン引数   第1章 コマンドライン引数 コマンドライン引数がmain関数にどのように渡されるかという話。
+ただ読んだだけではなかなか身につかないので、自分の中で気になったところをこの記事に読書記録としてまとめてアウトプットしておこうと思います。少しずつ更新予定。
+目次  第1章 Linuxプログラミングを始めよう  1.5 コマンドライン引数  第3章 Linuxを描き出す3つの概念  3.1 ファイルシステム 3.2 プロセス 3.3 ストリーム 3.4 3大重要概念のまとめ  第5章 ストリームに関わるシステムコール  5.2 ファイルディスクリプタ 5.4 ストリームの読み書き   第1章 Linuxプログラミングを始めよう コマンドライン引数 コマンドライン引数がmain関数にどのように渡されるかという話。
 #include &lt;stdio.h&gt; int main(int argc, char *argv[]) { printf(&quot;Hello, World!\n&quot;); return 0; }  このargcとargvがコマンドライン引数を表しています。
 argc はコマンドライン引数の数が、 argv はコマンドライン引数の実体が文字列の配列として格納されています。 この時注意しなければならないのはコマンドライン引数にはコマンド自体が含まれているということです。 例えば
-echo x y z  というコマンドを実行した時argcはecho自体を含めた4、argvの中身は&rdquo;echo&rdquo;, &ldquo;x&rdquo;, &ldquo;y&rdquo;, &ldquo;z&rdquo;となります。 もちろんargcとargvという変数名は任意です。
-サンプルコード args.c
-#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; int main(int argcount, char *args[]) { int i; printf(&quot;argcount=%d\n&quot;, argcount); for (i = 0; i &lt; argcount; i&#43;&#43;) { printf(&quot;args[%d]=%s\n&quot;, i, args[i]); } exit(0); }  $ gcc -o args args.">
-  <meta name="author" content="">
-  
-  <link href="https://grezar.net/css/font.css" rel="stylesheet">
-  <link href="https://grezar.net/css/atom-one-dark.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i" rel="stylesheet">
-  <link href="https://grezar.net/css/style.css" rel="stylesheet">
-  
-  <link rel="apple-touch-icon" href="https://grezar.net/img/apple-touch-icon.png">
-  <link rel="icon" href="https://grezar.net/img/favicon.ico">
-  
-  <meta name="generator" content="Hugo 0.53" />
-  
-  <link rel="alternate" type="application/atom+xml" href="https://grezar.net/index.xml" title="grezar.net">
-  
-</head>
-<body class="single">
-  <header class="header">
+echo x y z  というコマンドを実行した時argcはecho自体を含めた4、argvの中身は&rdquo;echo&rdquo;, &ldquo;x&rdquo;, &ldquo;y&rdquo;, &ldquo;z&rdquo;となります。 もちろんargcとargvという変数名は任意です。">
+    <meta name="author" content="">
     
-    <p class="title"><a href="https://grezar.net/">grezar.net</a></p>
+    <link href="https://grezar.net/css/github-gist.min.css" rel="stylesheet">
+    <link href="https://grezar.net/css/style.css" rel="stylesheet">
     
-    <button class="menu-toggle" type="button"></button>
-    <nav class="menu">
-      <ul>
+    <link rel="apple-touch-icon" href="https://grezar.net/img/apple-touch-icon.png">
+    <link rel="icon" href="https://grezar.net/img/favicon.ico">
+    
+    <meta name="generator" content="Hugo 0.55.5" />
+    
+    <link rel="alternate" type="application/atom+xml" href="https://grezar.net/index.xml" title="grezar.net">
+    
+    
+  </head>
+  <body class="single">
+    <header class="header">
+      <div class="wrap">
         
+        <p class="logo"><a href="https://grezar.net/">grezar.net </a></p>
         
-      </ul>
+        <button class="menu-toggle" type="button"></button>
+      </div>
+    </header>
+    <nav class="nav">
+    <ul class="menu">
+      
+      
+    </ul>
     </nav>
-  </header>
-  <main class="main">
+    <main class="main">
 
-<article class="post post-view">
+
+<article class="post-single">
   <header class="post-header">
     <h1 class="post-title">ふつうのLinuxプログラミングを読んだ</h1>
-    <p class="post-meta">2018.12.30</p>
+    <div class="post-meta">2018.12.30</div>
   </header>
   <div class="post-content">
 
@@ -68,7 +68,7 @@ echo x y z  というコマンドを実行した時argcはecho自体を含めた
 <p>要するにLinuxカーネルのシステムコールであったり、ライブラリ関数を利用していくつかのコマンドや、HTTPサーバーを作成して、Linuxでのプログラミングを学んでいくという内容の本です。
 Linuxのファイルシステムやプロセス、ストリームと言った概念についても解説をしており、Cを書く機会とLinuxの仕組みについて学ぶことを目的としてこの本を手に取りました。</p>
 
-<p>ただ読んだだけではなかなか身につかないのでこの記事に読書記録としてまとめてアウトプットしておこうと思います。少しずつ更新予定。</p>
+<p>ただ読んだだけではなかなか身につかないので、自分の中で気になったところをこの記事に読書記録としてまとめてアウトプットしておこうと思います。少しずつ更新予定。</p>
 
 <h2 id="目次">目次</h2>
 
@@ -78,9 +78,23 @@ Linuxのファイルシステムやプロセス、ストリームと言った概
 <ul>
 <li>1.5 <a href="#コマンドライン引数">コマンドライン引数</a></li>
 </ul></li>
+<li>第3章 Linuxを描き出す3つの概念
+
+<ul>
+<li>3.1 ファイルシステム</li>
+<li>3.2 プロセス</li>
+<li>3.3 ストリーム</li>
+<li>3.4 3大重要概念のまとめ</li>
+</ul></li>
+<li>第5章 ストリームに関わるシステムコール
+
+<ul>
+<li>5.2 ファイルディスクリプタ</li>
+<li>5.4 ストリームの読み書き</li>
+</ul></li>
 </ul>
 
-<h2 id="第1章">第1章</h2>
+<h2 id="第1章-linuxプログラミングを始めよう">第1章 Linuxプログラミングを始めよう</h2>
 
 <h3 id="コマンドライン引数">コマンドライン引数</h3>
 
@@ -136,6 +150,72 @@ args[1]=a
 args[2]=b
 args[3]=c
 </code></pre>
+
+<h2 id="第3章-linuxを描き出す3つの概念">第3章 Linuxを描き出す3つの概念</h2>
+
+<h3 id="ファイルシステム">ファイルシステム</h3>
+
+<p>ファイルシステムとはファイルにファイルとしての特徴を持たせるのである。ではファイルの特徴とは何か。
+一口にファイルと言っても多くの意味を持っている。</p>
+
+<h4 id="ファイルの特徴">ファイルの特徴</h4>
+
+<p>例えば<code>ls</code>コマンドを打ったときにテキストファイルやバイナリファイルやシンボリックリンク、あるいはディレクトリなどが表示される。
+これらはすべて広義の意味でのファイルと捉えることができる。
+広義のファイルは細かく分類できる。</p>
+
+<p><strong>普通のファイル</strong></p>
+
+<p>テキストファイルや画像ファイルなどのように何らかのデータが記録されているファイル（データという単語もかなり広い意味を持っているが&hellip;)。</p>
+
+<p><strong>ディレクトリ</strong></p>
+
+<p>ディレクトリは複数のファイルを入れることができるファイルと捉えることができる。</p>
+
+<p><strong>シンボリックリンク</strong></p>
+
+<p>他のファイルの別名を記録したファイル。</p>
+
+<p><strong>デバイスファイル</strong>
+ハードウェアをファイルとして表現したもの。例えば<code>df</code>コマンドを打ったときに表示される<code>/dev/sda1</code>などがそれ。</p>
+
+<p>その他名前付きパイプやUNIXドメインソケットなども広義の意味でファイルに含まれる。</p>
+
+<p>ファイルの特徴としては以下のものが挙げられる。</p>
+
+<ol>
+<li><p>データを保持する</p></li>
+
+<li><p>付帯情報を持つ</p></li>
+</ol>
+
+<p><code>ls -l</code> で確認できるようにファイルの作成、更新日時やファイルの所有権などの付帯情報を持っている。</p>
+
+<ol>
+<li>名前で指定できる
+パスによって名前を指定できる。</li>
+</ol>
+
+<p>このようなファイルとしての特徴をファイルに持たせるのがファイルシステムだと言える。</p>
+
+<h3 id="プロセス">プロセス</h3>
+
+<p>プロセスとは動作中のプログラムである。プログラムとはテキストデータとして存在している状態も含む言葉。
+ひとつのプログラムから複数のプロセスを起動することができる。したがって動作中のプログラムの名前だけではプロセスを一意に特定できない。
+そこでプロセスIDが用いられる。</p>
+
+<h3 id="ストリーム">ストリーム</h3>
+
+<p>この本独自にバイト列が流れる道をストリームと呼んでいる。この概念によって説明をシンプルにまとめることに成功している箇所がいくつもあり、この独自の概念は非常に有用だと思った。
+ストリームが使われる場所としてプロセスからのファイルへのアクセス（read、 write)や、パイプ、プロセス間通信、ネットワーク通信などがあげられる。</p>
+
+<h2 id="第5章-ストリームに関わるシステムコール">第5章 ストリームに関わるシステムコール</h2>
+
+<h3 id="5-2-ファイルディスクリプタ">5.2 ファイルディスクリプタ</h3>
+
+<p>ファイルディスクリプタはストリームを表す整数値。標準入力、標準出力、標準エラー出力などのように標準で用意されているものもあればopenなどのシステムコールを使って新たにストリームを作成し、ファイルディスクリプタを得ることもできる。</p>
+
+<h3 id="5-4-ストリームの読み書き">5.4 ストリームの読み書き</h3>
 </div>
   <footer class="post-footer">
     
@@ -145,27 +225,34 @@ args[3]=c
   
   
 </article>
+
 </main>
 <footer class="footer">
-  <span>&copy; 2018 grezar.net</span>
+  <span>&copy; 2019 grezar.net</span>
   <span>&middot;</span>
   <span>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</span>
   <span>&middot;</span>
-  <span>Designed by <a href="http://21beats.com/" rel="noopener" target="_blank">️21beats️</a>️</span>
+  <span>Theme️ <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper</a></span>
 </footer>
 <script src="https://grezar.net/js/instantclick.min.js" data-no-instant></script>
 <script data-no-instant>InstantClick.init();</script>
 <script src="https://grezar.net/js/highlight.min.js" data-no-instant></script>
 <script data-no-instant>
-  addMenuListener();
+  hljs.initHighlightingOnLoad();
+  setMenuListener();
+
   InstantClick.on('change', function() {
-    addMenuListener();
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+    setMenuListener();
   });
-  function addMenuListener() {
-    var $toggle = document.querySelector('.menu-toggle');
-    var $body = document.querySelector('body');
-    $toggle.addEventListener('click', function() {
-      $body.classList.toggle('noscroll');
+
+  function setMenuListener() {
+    var menuToggle = document.querySelector('.menu-toggle');
+    var body = document.querySelector('body');
+    menuToggle.addEventListener('click', function() {
+      body.classList.toggle('no-scroll');
     }, false);
   }
 </script>
